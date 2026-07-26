@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kiran &amp; Pavitra — Wedding Invitation</title>
+
+<!--
+  IMPORTANT: These Open Graph tags control the WhatsApp / iMessage / social
+  link-preview card. They MUST stay as plain static HTML (link-preview bots
+  do not run JavaScript), so if you edit config.js, mirror the relevant
+  details here too: title, description, date, and the og:image below.
+  og:image must be an ABSOLUTE url once deployed (e.g.
+  https://<user>.github.io/lagna-patrika/assets/og-image.png).
+-->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kiran ❤ Pavitra — Wedding Invitation" />
+<meta property="og:description" content="Thursday, 26th November 2026 · Shree Kavoor Kamakshi Sabhagraha, Kumta. You're invited!" />
+<meta property="og:image" content="assets/og-image.png" />
+<meta property="og:url" content="" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Kiran ❤ Pavitra — Wedding Invitation" />
+<meta name="twitter:description" content="Thursday, 26th November 2026 · Shree Kavoor Kamakshi Sabhagraha, Kumta. You're invited!" />
+<meta name="twitter:image" content="assets/og-image.png" />
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<div class="card">
+  <div class="border-frame">
+
+    <header class="section">
+      <p class="invocation" id="invocation"></p>
+      <div class="ornament"><span></span><i>❦</i><span></span></div>
+      <p class="hosts" id="hosts"></p>
+      <p class="hosts-line" id="hosts-line"></p>
+    </header>
+
+    <section class="section person">
+      <h1 class="name" id="groom-name"></h1>
+      <div class="lines" id="groom-lines"></div>
+    </section>
+
+    <div class="ornament small"><span></span><i>❦</i><span></span></div>
+    <p class="connector" id="connector"></p>
+    <div class="ornament small"><span></span><i>❦</i><span></span></div>
+
+    <section class="section person">
+      <h1 class="name" id="bride-name"></h1>
+      <div class="lines" id="bride-lines"></div>
+    </section>
+
+    <div class="ornament"><span></span><i>❦</i><span></span></div>
+
+    <section class="section datetime">
+      <p class="date-display" id="date-display"></p>
+      <p class="muhurtham" id="muhurtham"></p>
+    </section>
+
+    <section class="section countdown-wrap">
+      <div id="countdown" class="countdown" aria-live="polite">
+        <div class="cd-block"><span id="cd-days">--</span><small>Days</small></div>
+        <div class="cd-block"><span id="cd-hours">--</span><small>Hours</small></div>
+        <div class="cd-block"><span id="cd-minutes">--</span><small>Minutes</small></div>
+        <div class="cd-block"><span id="cd-seconds">--</span><small>Seconds</small></div>
+      </div>
+      <p id="countdown-over" class="countdown-over hidden">🎉 The wedding day is here! 🎉</p>
+    </section>
+
+    <section class="section venue">
+      <h2 class="label">Venue</h2>
+      <p id="venue-name"></p>
+      <p id="venue-address"></p>
+      <a id="venue-maps-link" class="btn btn-outline" target="_blank" rel="noopener">Get Directions</a>
+      <img id="venue-qr" class="qr" alt="Scan for venue location on Google Maps" />
+      <p class="qr-caption">Scan for Location on Google Maps</p>
+    </section>
+
+    <section class="section calendar">
+      <h2 class="label">Save the Date</h2>
+      <div class="cal-buttons">
+        <a id="cal-google" class="btn" target="_blank" rel="noopener">Add to Google Calendar</a>
+        <button id="cal-ics" class="btn btn-outline">Download .ics (Apple / Outlook)</button>
+      </div>
+    </section>
+
+    <section class="section photo-share" id="photo-share-section">
+      <h2 class="label" id="photo-heading"></h2>
+      <p id="photo-body"></p>
+      <a id="photo-link" class="btn" target="_blank" rel="noopener"></a>
+    </section>
+
+    <div class="ornament"><span></span><i>❦</i><span></span></div>
+
+    <section class="section compliments">
+      <p class="compliments-heading" id="compliments-heading"></p>
+      <div id="compliments-lines"></div>
+    </section>
+
+    <p class="footer-note" id="footer-note"></p>
+
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+:root {
+  --gold: #8B6914;
+  --darkred: #7A1F2B;
+  --ink: #222222;
+  --cream: #fffdf8;
+  --paper: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px 12px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fbf6ec 0%, #f3ead9 100%);
+  font-family: "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 640px;
+  background: var(--paper);
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(122, 31, 43, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+  padding: 10px;
+}
+
+.border-frame {
+  border: 2px solid var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: 6px;
+  border-radius: 4px;
+  padding: 36px 28px 30px;
+}
+
+.section { text-align: center; margin: 0 0 18px; }
+
+.invocation {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--darkred);
+  font-size: 1.15rem;
+  margin: 0 0 14px;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 14px auto;
+  max-width: 340px;
+  color: var(--gold);
+}
+.ornament.small { max-width: 180px; margin: 8px auto; }
+.ornament span {
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+}
+.ornament i { font-style: normal; font-size: 0.9rem; }
+
+.hosts { font-weight: 700; font-size: 1.15rem; margin: 4px 0; }
+.hosts-line { white-space: pre-line; font-size: 0.98rem; line-height: 1.5; margin: 8px 0 0; }
+
+.person { margin-bottom: 4px; }
+.name {
+  font-size: 2.4rem;
+  color: var(--darkred);
+  margin: 6px 0 10px;
+  letter-spacing: 0.5px;
+}
+.lines p { margin: 3px 0; font-size: 0.92rem; line-height: 1.5; }
+
+.connector { font-style: italic; margin: 0; font-size: 1.05rem; }
+
+.datetime .date-display { font-weight: 700; font-size: 1.15rem; margin: 4px 0; }
+.datetime .muhurtham { margin: 4px 0 0; font-size: 1rem; }
+
+.countdown-wrap { margin: 22px 0; }
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cd-block {
+  background: linear-gradient(180deg, #fbf1de, #f4e4c5);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  min-width: 68px;
+  padding: 10px 6px;
+}
+.cd-block span {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--darkred);
+  line-height: 1;
+}
+.cd-block small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6b5a3a;
+}
+.countdown-over { font-weight: 700; color: var(--darkred); font-size: 1.1rem; }
+.hidden { display: none; }
+
+.label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  padding-bottom: 2px;
+  margin: 0 0 10px;
+}
+
+.venue p { margin: 2px 0; font-size: 1rem; }
+.qr {
+  width: 120px;
+  height: 120px;
+  margin: 14px 0 6px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+.qr-caption { font-style: italic; color: var(--darkred); font-size: 0.85rem; margin: 0; }
+
+.btn {
+  display: inline-block;
+  margin: 6px 6px;
+  padding: 10px 18px;
+  background: var(--darkred);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(122,31,43,0.25); }
+.btn-outline {
+  background: transparent;
+  color: var(--darkred);
+  border: 1.5px solid var(--darkred);
+}
+
+.cal-buttons { display: flex; flex-wrap: wrap; justify-content: center; }
+
+.photo-share p { font-size: 0.95rem; max-width: 420px; margin: 0 auto 6px; }
+
+.compliments-heading { font-style: italic; margin: 4px 0 8px; }
+#compliments-lines p { margin: 2px 0; font-size: 0.95rem; }
+
+.footer-note {
+  font-weight: 700;
+  font-style: italic;
+  color: var(--darkred);
+  margin: 18px 0 4px;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 420px) {
+  .name { font-size: 1.9rem; }
+  .border-frame { padding: 26px 16px 22px; }
+  .cd-block { min-width: 58px; padding: 8px 4px; }
+}
+
+@media (prefers-color-scheme: dark) {
+  body { background: linear-gradient(180deg, #1a1512 0%, #120e0b 100%); }
+  .card { background: #201a15; }
+  .border-frame { border-color: var(--gold); }
+  body, .lines p, .venue p, #compliments-lines p, .hosts-line, .datetime .muhurtham {
+    color: #f1e6d3;
+  }
+  .cd-block { background: linear-gradient(180deg, #2c2115, #241a0f); }
+  .cd-block small { color: #cbb98b; }
+  .label { color: #f1e6d3; border-color: #f1e6d3; }
+}
