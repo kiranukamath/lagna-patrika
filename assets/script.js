@@ -4,8 +4,10 @@
   function render() {
     document.title = CONFIG.siteTitle || document.title;
 
-    $("name1").textContent = CONFIG.couple.person1;
-    $("name2").textContent = CONFIG.couple.person2;
+    $("name1").textContent = CONFIG.couple.person1.name;
+    $("parents1").textContent = CONFIG.couple.person1.parents || "";
+    $("name2").textContent = CONFIG.couple.person2.name;
+    $("parents2").textContent = CONFIG.couple.person2.parents || "";
     $("tagline").textContent = CONFIG.tagline || "";
     $("intro-line").textContent = CONFIG.introLine || "";
     $("date-display").textContent = CONFIG.dateDisplay || "";

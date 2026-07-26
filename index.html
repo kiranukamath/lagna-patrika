@@ -36,9 +36,17 @@
   <section class="hero">
     <div class="hero-inner">
       <p class="eyebrow">We're getting married</p>
-      <h1 class="couple-names">
-        <span id="name1"></span><span class="amp">&amp;</span><span id="name2"></span>
-      </h1>
+      <div class="couple-block">
+        <div class="person">
+          <h1 class="person-name" id="name1"></h1>
+          <p class="person-parents" id="parents1"></p>
+        </div>
+        <span class="amp">&amp;</span>
+        <div class="person">
+          <h1 class="person-name" id="name2"></h1>
+          <p class="person-parents" id="parents2"></p>
+        </div>
+      </div>
       <p class="tagline" id="tagline"></p>
       <p class="intro" id="intro-line"></p>
 
@@ -71,13 +79,13 @@
     </div>
 
     <div class="cal-buttons">
-      <a id="cal-google" class="btn" target="_blank" rel="noopener">Add to Google Calendar</a>
-      <button id="cal-ics" class="btn btn-outline">Download .ics</button>
+      <a id="cal-google" class="btn-mini" target="_blank" rel="noopener">+ Add to Google Calendar</a>
+      <button id="cal-ics" class="btn-mini">+ Download .ics</button>
     </div>
   </section>
 
   <section class="panel venue-panel">
-    <h2 class="panel-title">Find Us</h2>
+    <h2 class="panel-title">Venue</h2>
     <p class="venue-name" id="venue-name"></p>
     <p class="venue-address" id="venue-address"></p>
     <div class="venue-row">

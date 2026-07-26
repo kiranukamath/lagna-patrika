@@ -7,8 +7,14 @@ const CONFIG = {
   siteTitle: "Kiran & Pavitra are Getting Married!",
 
   couple: {
-    person1: "Kiran",
-    person2: "Pavitra",
+    person1: {
+      name: "Kiran Kamath",
+      parents: "S/o Jyothi & Uday Kamath",
+    },
+    person2: {
+      name: "Pavitra Bhandarkar",
+      parents: "D/o Pooja & Pramod Bhandarkar",
+    },
   },
 
   tagline: "We're tying the knot!",
