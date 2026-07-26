@@ -4,44 +4,28 @@
 // Nothing else in the site needs to change for basic use.
 // ============================================================
 const CONFIG = {
-  // Shown in the browser tab and used to build the page title
-  siteTitle: "Kiran & Pavitra — Wedding Invitation",
+  siteTitle: "Kiran & Pavitra are Getting Married!",
 
-  // Top invocation line (optional — leave "" to hide)
-  invocation: "|| Shri Kuladevatha Prasanna ||",
-
-  hosts: "Smt. Seethabai & Shri Ullas Vittal Kamath, Shirali",
-  hostsLine: "Request your gracious presence with family & friends\non the occasion of the wedding of our Nephew",
-
-  groom: {
-    label: "Chi.",
-    name: "KIRAN",
-    lines: [
-      "S/o Smt. Jyothi & Shri. Uday Vittal Kamath, Shirali",
-      "Grandson of Late Mrs. Geetha & Late Vittal Nagappa Kamath, Shirali",
-      "Grandson of Late Mrs. Anuradha & Late K. Goverdhan Appa Kamath, Mulki",
-    ],
+  couple: {
+    person1: "Kiran",
+    person2: "Pavitra",
   },
 
-  connector: "With",
+  tagline: "We're tying the knot!",
+  introLine: "Together with our families, we're so excited to invite you to celebrate our wedding.",
 
-  bride: {
-    label: "Chi. Sou.",
-    name: "PAVITRA",
-    lines: [
-      "D/o Smt. Pooja & Shri. Pramod Govind Bhandarkar, Kumta",
-    ],
-  },
+  // Fun, shareable hashtag — shown near the photo-share section
+  hashtag: "#KiranWedsPavitra",
 
   // Wedding date/time — used for the countdown AND the calendar links.
   // Use ISO 8601 with timezone offset. This example is IST (+05:30).
   eventStartISO: "2026-11-26T12:18:00+05:30",
   eventEndISO: "2026-11-26T14:18:00+05:30",
-  dateDisplay: "Thursday, 26th November, 2026",
-  muhurtham: "Muhurtham: 12:18 p.m. (Abhijith Lagnam)",
+  dateDisplay: "Thursday, 26th November 2026",
+  timeDisplay: "Ceremony begins at 12:18 PM (Abhijith Muhurtham)",
 
   venue: {
-    name: "Shree Kavoor Kamakshi Sabhagraha,",
+    name: "Shree Kavoor Kamakshi Sabhagraha",
     address: "Moorukatte, Kumta",
     // Full Google Maps link (short links like maps.app.goo.gl/... work fine)
     mapsUrl: "https://maps.app.goo.gl/o9BMJJpuHta8LzcY7",
@@ -49,31 +33,22 @@ const CONFIG = {
     qrImage: "assets/venue-qr.png",
   },
 
-  compliments: {
-    heading: "With Best Compliments From,",
-    lines: [
-      "Kamath Family, Shirali",
-      "Kamath Family, Mulki",
-      "Bhandarkar Family, Kumta",
-      "Relatives & Friends",
-    ],
-  },
-
-  footerNote: "“Presents in Blessings Only”",
-
-  // Set to null to hide the photo-sharing section entirely.
+  // Set to null (or leave url empty) to hide the photo-sharing section entirely.
   photoShare: {
-    heading: "Share Your Photos & Videos",
-    body: "Help us collect memories from the day — drop your photos here.",
+    heading: "Help Us Collect the Memories 📸",
+    body: "We'd love to see the day through your eyes. Drop your photos & videos here, and don't forget to use our hashtag!",
     url: "", // TODO: paste your shared Google Photos / Drive album link here
-    buttonLabel: "Add Photos",
+    buttonLabel: "Add Your Photos",
   },
 
-  // Calendar event details (separate from display strings above,
-  // since calendar apps want plain text, not decorative formatting)
+  // Short, warm credit line — a nod to the families, without the full
+  // formal invitation wording. Set to "" to hide.
+  familyNote: "With the love and blessings of the Kamath & Bhandarkar families",
+
+  // Calendar event details (plain text, used by calendar apps)
   calendar: {
     title: "Kiran & Pavitra's Wedding",
-    description: "Wedding of Kiran (S/o Jyothi & Uday Kamath) and Pavitra (D/o Pooja & Pramod Bhandarkar). Muhurtham at 12:18 p.m.",
+    description: "Join us as Kiran and Pavitra tie the knot! Ceremony begins at 12:18 PM (Abhijith Muhurtham).",
     location: "Shree Kavoor Kamakshi Sabhagraha, Moorukatte, Kumta",
   },
 };

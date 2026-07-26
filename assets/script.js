@@ -1,34 +1,18 @@
 (function () {
   const $ = (id) => document.getElementById(id);
 
-  function fillLines(container, lines) {
-    container.innerHTML = "";
-    (lines || []).forEach((line) => {
-      const p = document.createElement("p");
-      p.textContent = line;
-      container.appendChild(p);
-    });
-  }
-
   function render() {
     document.title = CONFIG.siteTitle || document.title;
 
-    $("invocation").textContent = CONFIG.invocation || "";
-    $("invocation").style.display = CONFIG.invocation ? "" : "none";
-
-    $("hosts").textContent = CONFIG.hosts || "";
-    $("hosts-line").textContent = CONFIG.hostsLine || "";
-
-    $("groom-name").textContent = `${CONFIG.groom.label} ${CONFIG.groom.name}`.trim();
-    fillLines($("groom-lines"), CONFIG.groom.lines);
-
-    $("connector").textContent = CONFIG.connector || "With";
-
-    $("bride-name").textContent = `${CONFIG.bride.label} ${CONFIG.bride.name}`.trim();
-    fillLines($("bride-lines"), CONFIG.bride.lines);
-
+    $("name1").textContent = CONFIG.couple.person1;
+    $("name2").textContent = CONFIG.couple.person2;
+    $("tagline").textContent = CONFIG.tagline || "";
+    $("intro-line").textContent = CONFIG.introLine || "";
     $("date-display").textContent = CONFIG.dateDisplay || "";
-    $("muhurtham").textContent = CONFIG.muhurtham || "";
+
+    $("detail-date").textContent = CONFIG.dateDisplay || "";
+    $("detail-time").textContent = CONFIG.timeDisplay || "";
+    $("detail-venue").textContent = `${CONFIG.venue.name}, ${CONFIG.venue.address}`;
 
     $("venue-name").textContent = CONFIG.venue.name || "";
     $("venue-address").textContent = CONFIG.venue.address || "";
@@ -39,12 +23,7 @@
       $("venue-qr").style.display = "none";
     }
 
-    $("compliments-heading").textContent = CONFIG.compliments.heading || "";
-    fillLines($("compliments-lines"), CONFIG.compliments.lines);
-
-    $("footer-note").textContent = CONFIG.footerNote || "";
-
-    // Photo share section (hidden entirely if config.photoShare is null/absent)
+    // Photo share section (hidden entirely if config.photoShare is null/absent/no url)
     const photoSection = $("photo-share-section");
     if (CONFIG.photoShare && CONFIG.photoShare.url) {
       $("photo-heading").textContent = CONFIG.photoShare.heading || "Share Your Photos";
@@ -52,9 +31,14 @@
       const link = $("photo-link");
       link.textContent = CONFIG.photoShare.buttonLabel || "Add Photos";
       link.href = CONFIG.photoShare.url;
+      $("hashtag").textContent = CONFIG.hashtag || "";
+      $("hashtag").style.display = CONFIG.hashtag ? "" : "none";
     } else {
       photoSection.classList.add("hidden");
     }
+
+    $("family-note").textContent = CONFIG.familyNote || "";
+    $("family-note").style.display = CONFIG.familyNote ? "" : "none";
   }
 
   // ---------- Countdown ----------

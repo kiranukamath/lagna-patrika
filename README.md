@@ -4,15 +4,17 @@ A free, open-source, single-page digital wedding invitation template.
 No backend, no build step — just static HTML/CSS/JS, deployable on
 GitHub Pages in a few minutes.
 
+Built for sharing the link itself as the invite — paste it into a
+WhatsApp message and it shows a proper preview card with your names and
+date, no PDF attachment needed.
+
 **Live features:**
-- Traditional invitation layout (customizable wording, works well for
-  Indian/Konkani-style invites with muhurtham, family lines, etc.)
-- Live countdown to the wedding date/time
+- Modern, mobile-first hero with the couple's names + a live countdown
 - Venue section with a Google Maps link + QR code
 - "Add to Calendar" — Google Calendar link and downloadable `.ics`
   (Apple Calendar / Outlook)
-- Optional "share your photos" button linking to an external album
-  (Google Photos / Drive) — no file storage needed
+- Optional "share your photos" button + hashtag, linking to an external
+  album (Google Photos / Drive) — no file storage needed
 - Open Graph tags so the link shows a nice preview card (title, date,
   image) when shared on WhatsApp / iMessage / etc.
 - Light & dark mode, mobile responsive

@@ -13,9 +13,15 @@ ASSETS = os.path.join(HERE, "..", "assets")
 MAPS_URL = "https://maps.app.goo.gl/o9BMJJpuHta8LzcY7"
 
 DARKRED = (122, 31, 43)
-GOLD = (139, 105, 20)
+MAROON_DEEP = (58, 15, 21)
+GOLD = (201, 162, 75)
 CREAM = (251, 246, 236)
+BLUSH = (255, 233, 214)
 INK = (34, 34, 34)
+
+
+def lerp(a, b, t):
+    return tuple(int(a[i] + (b[i] - a[i]) * t) for i in range(3))
 
 
 def make_qr():
@@ -37,30 +43,36 @@ def find_font(bold=False, size=40):
 
 def make_og_image():
     W, H = 1200, 630
-    img = Image.new("RGB", (W, H), CREAM)
-    draw = ImageDraw.Draw(img)
+    img = Image.new("RGB", (W, H), MAROON_DEEP)
+    px = img.load()
 
-    # border
-    margin = 26
-    draw.rectangle([margin, margin, W - margin, H - margin], outline=GOLD, width=4)
-    inset = margin + 14
-    draw.rectangle([inset, inset, W - inset, H - inset], outline=DARKRED, width=1)
+    # diagonal-ish gradient: maroon (top-left) -> deep maroon (bottom-right)
+    top_left = (138, 39, 52)
+    bottom_right = MAROON_DEEP
+    for y in range(H):
+        for_row = lerp(top_left, bottom_right, y / H)
+        for x in range(0, W, 4):  # coarse step for speed, then fill blocks
+            c = lerp(for_row, bottom_right, (x / W) * 0.35)
+            for dx in range(4):
+                if x + dx < W:
+                    px[x + dx, y] = c
+
+    draw = ImageDraw.Draw(img)
 
     def centered(y, text, font, color):
         bbox = draw.textbbox((0, 0), text, font=font)
         w = bbox[2] - bbox[0]
         draw.text(((W - w) / 2, y), text, font=font, fill=color)
 
-    f_small = find_font(bold=False, size=26)
-    f_names = find_font(bold=True, size=72)
-    f_date = find_font(bold=True, size=36)
-    f_venue = find_font(bold=False, size=26)
+    f_small = find_font(bold=False, size=24)
+    f_names = find_font(bold=True, size=76)
+    f_date = find_font(bold=True, size=34)
+    f_venue = find_font(bold=False, size=24)
 
-    centered(90, "You're Invited to the Wedding of", f_small, INK)
-    centered(150, "Kiran  &  Pavitra", f_names, DARKRED)
+    centered(80, "W E ' R E   G E T T I N G   M A R R I E D", f_small, GOLD)
+    centered(140, "Kiran  &  Pavitra", f_names, (255, 255, 255))
 
-    # small diamond ornament (drawn, not a font glyph, to avoid missing-glyph boxes)
-    cx, cy, r = W / 2, 300, 9
+    cx, cy, r = W / 2, 290, 9
     draw.line([(cx - 90, cy), (cx - 22, cy)], fill=GOLD, width=2)
     draw.line([(cx + 22, cy), (cx + 90, cy)], fill=GOLD, width=2)
     draw.polygon(
@@ -68,8 +80,12 @@ def make_og_image():
         outline=GOLD, width=2,
     )
 
-    centered(360, "Thursday, 26th November 2026", f_date, INK)
-    centered(415, "Shree Kavoor Kamakshi Sabhagraha, Kumta", f_venue, INK)
+    centered(350, "Thursday, 26th November 2026", f_date, (255, 233, 214))
+    centered(400, "Shree Kavoor Kamakshi Sabhagraha, Kumta", f_venue, (243, 217, 201))
+
+    # thin gold frame
+    margin = 22
+    draw.rectangle([margin, margin, W - margin, H - margin], outline=GOLD, width=2)
 
     img.save(os.path.join(ASSETS, "og-image.png"))
     print("saved og-image.png")
