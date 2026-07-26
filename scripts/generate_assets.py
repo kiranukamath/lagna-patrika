@@ -15,9 +15,12 @@ MAPS_URL = "https://maps.app.goo.gl/o9BMJJpuHta8LzcY7"
 DARKRED = (122, 31, 43)
 MAROON_DEEP = (58, 15, 21)
 GOLD = (201, 162, 75)
+MARIGOLD = (226, 113, 29)
 CREAM = (251, 246, 236)
 BLUSH = (255, 233, 214)
 INK = (34, 34, 34)
+
+DEVANAGARI_FONT = "/System/Library/Fonts/Supplemental/Devanagari Sangam MN.ttc"
 
 
 def lerp(a, b, t):
@@ -64,24 +67,27 @@ def make_og_image():
         w = bbox[2] - bbox[0]
         draw.text(((W - w) / 2, y), text, font=font, fill=color)
 
-    f_small = find_font(bold=False, size=24)
-    f_names = find_font(bold=True, size=76)
+    f_om = ImageFont.truetype(DEVANAGARI_FONT, 46) if os.path.exists(DEVANAGARI_FONT) else find_font(size=46)
+    f_small = find_font(bold=False, size=22)
+    f_names = find_font(bold=True, size=72)
     f_date = find_font(bold=True, size=34)
     f_venue = find_font(bold=False, size=24)
 
-    centered(80, "W E ' R E   G E T T I N G   M A R R I E D", f_small, GOLD)
-    centered(140, "Kiran  &  Pavitra", f_names, (255, 255, 255))
+    centered(48, "ॐ", f_om, GOLD)
+    centered(112, "S H U B H   V I V A H", f_small, GOLD)
+    centered(160, "Kiran  &  Pavitra", f_names, (255, 255, 255))
 
-    cx, cy, r = W / 2, 290, 9
+    cx, cy = W / 2, 300
     draw.line([(cx - 90, cy), (cx - 22, cy)], fill=GOLD, width=2)
     draw.line([(cx + 22, cy), (cx + 90, cy)], fill=GOLD, width=2)
+    r = 8
     draw.polygon(
         [(cx, cy - r), (cx + r, cy), (cx, cy + r), (cx - r, cy)],
-        outline=GOLD, width=2,
+        fill=MARIGOLD,
     )
 
-    centered(350, "Thursday, 26th November 2026", f_date, (255, 233, 214))
-    centered(400, "Shree Kavoor Kamakshi Sabhagraha, Kumta", f_venue, (243, 217, 201))
+    centered(355, "Thursday, 26th November 2026", f_date, (255, 233, 214))
+    centered(405, "Shree Kavoor Kamakshi Sabhagraha, Kumta", f_venue, (243, 217, 201))
 
     # thin gold frame
     margin = 22

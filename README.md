@@ -9,10 +9,15 @@ WhatsApp message and it shows a proper preview card with your names and
 date, no PDF attachment needed.
 
 **Live features:**
-- Modern, mobile-first hero with the couple's names + a live countdown
+- Modern, mobile-first hero with the couple's full names, parents, and
+  a live countdown
+- Hindu-wedding styling touches: Om mark, "Shubh Vivah" mark, marigold
+  + maroon + gold palette, mandala corner flourishes, marigold petal
+  dividers, gentle scroll-in reveal animation
 - Venue section with a Google Maps link + QR code
-- "Add to Calendar" — Google Calendar link and downloadable `.ics`
-  (Apple Calendar / Outlook)
+- Low-key "Add to Calendar" links (Google Calendar + downloadable
+  `.ics` for Apple/Outlook) — most guests won't use these, so they
+  stay small and out of the way
 - Optional "share your photos" button + hashtag, linking to an external
   album (Google Photos / Drive) — no file storage needed
 - Open Graph tags so the link shows a nice preview card (title, date,
@@ -69,7 +74,7 @@ lagna-patrika/
 ## Customizing the look
 
 Colors and spacing live in `assets/style.css` as CSS variables at the
-top of the file (`--gold`, `--darkred`, `--ink`, ...). Swap them for
+top of the file (`--gold`, `--marigold`, `--maroon`, `--ink`, ...). Swap them for
 your own palette — everything else derives from those.
 
 ## Photo sharing
