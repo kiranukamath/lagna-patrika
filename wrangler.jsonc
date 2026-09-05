@@ -1,0 +1,9 @@
+{
+	"name": "lagna-patrika",
+	// Update to today's date if Cloudflare asks you to bump this
+	"compatibility_date": "2026-09-05",
+	"assets": {
+		"directory": "./",
+		"html_handling": "auto-trailing-slash"
+	}
+}
