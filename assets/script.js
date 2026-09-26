@@ -25,6 +25,18 @@
       $("venue-qr").style.display = "none";
     }
 
+    // Pooja section (hidden entirely if config.pooja is null/absent)
+    const pooja = CONFIG.pooja;
+    if (pooja) {
+      $("pooja-title").textContent = pooja.title || "";
+      $("pooja-date").textContent = pooja.dateDisplay || "";
+      $("pooja-venue").textContent = [pooja.venueName, pooja.venueAddress].filter(Boolean).join(", ");
+      $("pooja-maps-link").href = pooja.mapsUrl || "#";
+    } else {
+      $("pooja-section").classList.add("hidden");
+      $("pooja-divider").classList.add("hidden");
+    }
+
     // Photo share section (hidden entirely if config.photoShare is null/absent/no url)
     const photoSection = $("photo-share-section");
     if (CONFIG.photoShare && CONFIG.photoShare.url) {
@@ -93,32 +105,60 @@
     $("cal-google").href = gcalUrl;
 
     $("cal-ics").addEventListener("click", () => {
-      const ics = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//lagna-patrika//wedding-invite//EN",
-        "BEGIN:VEVENT",
-        `UID:${Date.now()}@lagna-patrika`,
-        `DTSTAMP:${toUtcStamp(new Date().toISOString())}`,
+      downloadIcs("wedding-invite.ics", [
         `DTSTART:${start}`,
         `DTEND:${end}`,
         `SUMMARY:${cal.title || CONFIG.siteTitle || "Wedding"}`,
         `DESCRIPTION:${(cal.description || "").replace(/\n/g, "\\n")}`,
         `LOCATION:${cal.location || ""}`,
-        "END:VEVENT",
-        "END:VCALENDAR",
-      ].join("\r\n");
-
-      const blob = new Blob([ics], { type: "text/calendar" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "wedding-invite.ics";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      ]);
     });
+
+    // Pooja: all-day event (date-only values, end date exclusive)
+    const pooja = CONFIG.pooja;
+    if (pooja) {
+      const poojaLocation = [pooja.venueName, pooja.venueAddress].filter(Boolean).join(", ");
+      $("pooja-cal-google").href =
+        `https://www.google.com/calendar/render?action=TEMPLATE` +
+        `&text=${encodeURIComponent(pooja.calendarTitle || pooja.title || "")}` +
+        `&dates=${pooja.dateStart}/${pooja.dateEnd}` +
+        `&details=${encodeURIComponent(pooja.calendarDescription || "")}` +
+        `&location=${encodeURIComponent(poojaLocation)}`;
+
+      $("pooja-cal-ics").addEventListener("click", () => {
+        downloadIcs("sathyanarayan-pooja.ics", [
+          `DTSTART;VALUE=DATE:${pooja.dateStart}`,
+          `DTEND;VALUE=DATE:${pooja.dateEnd}`,
+          `SUMMARY:${pooja.calendarTitle || pooja.title || ""}`,
+          `DESCRIPTION:${(pooja.calendarDescription || "").replace(/\n/g, "\\n")}`,
+          `LOCATION:${poojaLocation}`,
+        ]);
+      });
+    }
+  }
+
+  function downloadIcs(filename, eventLines) {
+    const ics = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//lagna-patrika//wedding-invite//EN",
+      "BEGIN:VEVENT",
+      `UID:${Date.now()}@lagna-patrika`,
+      `DTSTAMP:${toUtcStamp(new Date().toISOString())}`,
+      ...eventLines,
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n");
+
+    const blob = new Blob([ics], { type: "text/calendar" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
 
   // ---------- Scroll-in reveal ----------

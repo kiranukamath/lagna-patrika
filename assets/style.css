@@ -347,6 +347,8 @@ h1, h2 { font-family: "Playfair Display", Georgia, serif; margin: 0; }
   max-width: 520px;
   border: 1px solid rgba(201,162,75,0.35);
 }
+.pooja-actions { margin-top: 18px; }
+
 .venue-name { font-weight: 600; font-size: 1.1rem; margin: 4px 0; }
 .venue-address { color: #6b5a4a; margin: 0 0 18px; }
 .venue-row {

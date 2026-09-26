@@ -39,6 +39,20 @@ const CONFIG = {
     qrImage: "assets/venue-qr.png",
   },
 
+  // Follow-up event shown below the venue. All-day (no time). Set to null to hide.
+  pooja: {
+    title: "Sathyanarayan Pooja",
+    // All-day calendar dates: end is the day AFTER (exclusive), per calendar spec
+    dateStart: "20261127",
+    dateEnd: "20261128",
+    dateDisplay: "Friday, 27th November 2026",
+    venueName: "Pete Hanumantha Temple",
+    venueAddress: "Shirali",
+    mapsUrl: "https://maps.app.goo.gl/bo9onfDMVuTdLLvK8",
+    calendarTitle: "Sathyanarayan Pooja — Kiran & Pavitra",
+    calendarDescription: "Sathyanarayan Pooja following Kiran & Pavitra's wedding.",
+  },
+
   // Set to null (or leave url empty) to hide the photo-sharing section entirely.
   photoShare: {
     heading: "Help Us Collect the Memories 📸",
